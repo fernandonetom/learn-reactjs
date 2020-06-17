@@ -1,26 +1,38 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+/*
+  MANEIRA 1
+*/
+// class App extends React.Component {
+// 	render() {
+// 		return <h1>Teste</h1>;
+// 	}
+// }
+/*
+  MANEIRA 2
+*/
 
 function App() {
+	const fomartName = (user) => {
+		return user.name + " " + user.lastname;
+	};
+
+	const user = {
+		name: "Fernando",
+		lastname: "Neto",
+	};
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<div>{fomartName(user)}</div>
+			<div>{1 + 1}</div>
+		</>
 	);
 }
 
+/*
+  MANEIRA 3
+*/
+// const App = (props) => {
+// 	return <h1>Teste {props.teste}</h1>;
+// };
 export default App;
