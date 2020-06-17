@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hello from "./hello";
 import "./App.css";
 import styled from "styled-components";
@@ -47,15 +47,20 @@ function App() {
 		lastname: "Neto",
 	};
 
+	const [contador, setContador] = useState(0);
+
 	return (
 		<>
 			<Hello name="José" age={12} />
 			<Hello name="Maria" age={25} />
 			<Hello name="João" age={30} />
 			<div>{fomartName(user)}</div>
-			<Card>{1 + 1}</Card>
+			<Card>{contador}</Card>
 			<Botao bgColor="#00FF00">Clique</Botao>
 			<BotaoPequeno>Sou pequeno</BotaoPequeno>
+			<BotaoPequeno onClick={() => setContador(contador + 1)}>
+				Adicionar
+			</BotaoPequeno>
 		</>
 	);
 }
