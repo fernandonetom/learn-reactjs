@@ -1,5 +1,6 @@
 import React from "react";
 import Hello from "./hello";
+import "./App.css";
 /*
   MANEIRA 1
 */
