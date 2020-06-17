@@ -1,4 +1,5 @@
 import React from "react";
+import Hello from "./hello";
 /*
   MANEIRA 1
 */
@@ -23,6 +24,9 @@ function App() {
 
 	return (
 		<>
+			<Hello name="José" age={12} />
+			<Hello name="Maria" age={25} />
+			<Hello name="João" age={30} />
 			<div>{fomartName(user)}</div>
 			<div>{1 + 1}</div>
 		</>
