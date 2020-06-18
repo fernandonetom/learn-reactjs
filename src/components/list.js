@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Text } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBox from "./search";
 
 export default function List() {
