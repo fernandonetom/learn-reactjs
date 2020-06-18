@@ -4,6 +4,7 @@ import TodoList from "./todoList";
 import Storage from "./storage";
 import GetParams from "./getParamsUrl";
 import GetQuery from "./getQueryUrl";
+import NotFound from "./notFound";
 export default function Rota() {
 	return (
 		<BrowserRouter>
@@ -42,6 +43,9 @@ export default function Rota() {
 				</Route>
 				<Route path="/query">
 					<GetQuery />
+				</Route>
+				<Route path="*">
+					<NotFound />
 				</Route>
 			</Switch>
 			<hr />
