@@ -1,10 +1,17 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import TodoList from "./todoList";
 import Storage from "./storage";
 import GetParams from "./getParamsUrl";
 import GetQuery from "./getQueryUrl";
 import NotFound from "./notFound";
+
+const idLogged = true;
+
+const PrivateRoute = ({ children, ...path }) => {
+	return <Route {...path}>{idLogged ? children : <Redirect to="/" />}</Route>;
+};
+
 export default function Rota() {
 	return (
 		<BrowserRouter>
@@ -41,9 +48,9 @@ export default function Rota() {
 				<Route path="/categorias/:cat/:id">
 					<GetParams />
 				</Route>
-				<Route path="/query">
+				<PrivateRoute path="/query">
 					<GetQuery />
-				</Route>
+				</PrivateRoute>
 				<Route path="*">
 					<NotFound />
 				</Route>
