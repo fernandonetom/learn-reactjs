@@ -25,6 +25,13 @@ export const BotaoPequeno = styled(Botao)`
 		cursor: pointer;
 	}
 `;
+
+const Input = styled.input`
+	width: 400px;
+	height: 30px;
+	font-size: 16px;
+	padding: 10px;
+`;
 /*
   MANEIRA 1
 */
@@ -48,10 +55,20 @@ function App() {
 	};
 
 	const [contador, setContador] = useState(0);
+	const [email, setemail] = useState("");
+	const [senha, setsenha] = useState("");
+
+	const handleEmailInput = (e) => {
+		setemail(e.target.value);
+	};
+
+	const Clique = (e) => {
+		e.preventDefault();
+	};
 
 	return (
 		<>
-			<Hello name="José" age={12} />
+			{/* <Hello name="José" age={12} />
 			<Hello name="Maria" age={25} />
 			<Hello name="João" age={30} />
 			<div>{fomartName(user)}</div>
@@ -60,7 +77,19 @@ function App() {
 			<BotaoPequeno>Sou pequeno</BotaoPequeno>
 			<BotaoPequeno onClick={() => setContador(contador + 1)}>
 				Adicionar
-			</BotaoPequeno>
+			</BotaoPequeno> */}
+			<Input type="text" value={email} onChange={handleEmailInput} />
+			<Input
+				type="password"
+				value={senha}
+				onChange={(e) => setsenha(e.target.value)}
+			/>
+			<p>
+				{email} / {senha}
+			</p>
+			<a href="#" onClick={Clique}>
+				Meu link
+			</a>
 		</>
 	);
 }
