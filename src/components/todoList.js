@@ -17,6 +17,11 @@ export default function TodoList() {
 		let newList = [...list, { title: text, done: false }];
 		setList(newList);
 	}
+	function handleToggloDone(index) {
+		let changeList = [...list];
+		changeList[index].done = !changeList[index].done;
+		setList(changeList);
+	}
 	return (
 		<>
 			<SearchBox onEnter={saveTodo} />
@@ -25,6 +30,10 @@ export default function TodoList() {
 					<li key={index}>
 						{item.done && <del>{item.title}</del>}
 						{!item.done && item.title}
+						<button onClick={() => handleToggloDone(index)}>
+							{item.done && "Desmarcar"}
+							{!item.done && "Feito"}
+						</button>
 					</li>
 				))}
 			</ul>
