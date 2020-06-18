@@ -10,7 +10,9 @@ export default function SearchBox(props) {
 	const [texto, setTexto] = useState("");
 
 	useEffect(() => {
-		props.onChangeText(texto);
+		if (props.onChangeText) {
+			props.onChangeText(texto);
+		}
 	}, [texto]);
 
 	return (

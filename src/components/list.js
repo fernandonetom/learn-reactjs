@@ -9,6 +9,8 @@ export default function List() {
 	return (
 		<>
 			<SearchBox frasePadrao="buscar..." onChangeText={handleSearchInput} />
+
+			<SearchBox frasePadrao={textSearch} />
 			<div>Texto procurado: {textSearch}</div>
 		</>
 	);
