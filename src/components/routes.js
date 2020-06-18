@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import TodoList from "./todoList";
 import Storage from "./storage";
 import GetParams from "./getParamsUrl";
+import GetQuery from "./getQueryUrl";
 export default function Rota() {
 	return (
 		<BrowserRouter>
@@ -22,6 +23,9 @@ export default function Rota() {
 						<li>
 							<Link to="/categorias/filmes/5">Filmes</Link>
 						</li>
+						<li>
+							<Link to="/query?cat=filmes&id=3">Filmes</Link>
+						</li>
 					</ul>
 				</nav>
 			</header>
@@ -35,6 +39,9 @@ export default function Rota() {
 				</Route>
 				<Route path="/categorias/:cat/:id">
 					<GetParams />
+				</Route>
+				<Route path="/query">
+					<GetQuery />
 				</Route>
 			</Switch>
 			<hr />
