@@ -5,7 +5,8 @@ import Storage from "./storage";
 import GetParams from "./getParamsUrl";
 import GetQuery from "./getQueryUrl";
 import NotFound from "./notFound";
-
+import ReducerFile from "./reducerFile";
+import Redux2 from "./reducer2";
 const idLogged = true;
 
 const PrivateRoute = ({ children, ...path }) => {
@@ -34,6 +35,12 @@ export default function Rota() {
 						<li>
 							<Link to="/query?cat=filmes&id=3">Filmes</Link>
 						</li>
+						<li>
+							<Link to="/redux">Redux</Link>
+						</li>
+						<li>
+							<Link to="/redux2">Redux 2</Link>
+						</li>
 					</ul>
 				</nav>
 			</header>
@@ -47,6 +54,12 @@ export default function Rota() {
 				</Route>
 				<Route path="/categorias/:cat/:id">
 					<GetParams />
+				</Route>
+				<Route path="/redux">
+					<ReducerFile />
+				</Route>
+				<Route path="/redux2">
+					<Redux2 />
 				</Route>
 				<PrivateRoute path="/query">
 					<GetQuery />
