@@ -9,20 +9,21 @@ import Storage from "./components/storage";
 import Rota from "./components/routes";
 
 /* REDUCERS */
+import { store, persistor } from "./components/reduxPersist";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import Reducers from "./reducers";
-const store = createStore(Reducers);
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			{/* <App teste="fenando" /> */}
-			{/* <Aula /> */}
-			{/* <List /> */}
-			{/* <TodoList /> */}
-			{/* <Storage /> */}
-			<Rota />
+			<PersistGate loading={null} persistor={persistor}>
+				{/* <App teste="fenando" /> */}
+				{/* <Aula /> */}
+				{/* <List /> */}
+				{/* <TodoList /> */}
+				{/* <Storage /> */}
+				<Rota />
+			</PersistGate>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")
