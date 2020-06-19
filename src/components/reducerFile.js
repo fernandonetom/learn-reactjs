@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function ReducerFile(props) {
+	const name = useSelector((state) => state.usuario.name);
+	const contador = useSelector((state) => state.usuario.contador);
+
+	const dispatch = useDispatch();
+
 	const handleFernando = () => {
-		props.setName("Fernando");
+		dispatch({
+			type: "SET_NAME",
+			payload: { name: "Fernando" },
+		});
 	};
 	const handleAdd = () => {
-		props.setCount(props.contador + 1);
+		dispatch({
+			type: "SET_COUNT",
+			payload: { contador: contador + 1 },
+		});
 	};
 
 	return (
 		<>
 			<h3>
-				Nome: {props.name} <br />
-				Contagem: {props.contador}
+				Nome: {name} <br />
+				Contagem: {contador}
 				<button onClick={handleFernando}>Setar nome para Fernando</button>
 				<button onClick={handleAdd}>Add contagem</button>
 			</h3>
@@ -21,26 +32,4 @@ function ReducerFile(props) {
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		name: state.usuario.name,
-		contador: state.usuario.contador,
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setName: (newName) =>
-			dispatch({
-				type: "SET_NAME",
-				payload: { name: newName },
-			}),
-		setCount: (newNumber) =>
-			dispatch({
-				type: "SET_COUNT",
-				payload: { contador: newNumber },
-			}),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReducerFile);
+export default ReducerFile;
